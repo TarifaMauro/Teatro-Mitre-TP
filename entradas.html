@@ -24,6 +24,16 @@
   
   
 </head>
+<style>
+    .success-message{display:none;position:fixed;left:50%;top:20%;transform:translateX(-50%);background:#fff;border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,.25);z-index:9999;max-width:92%;width:420px;overflow:hidden}
+    .success-message:target{display:block}
+    input.modal-toggle:checked ~ .success-message{display:block}
+    .success-message h4{margin:0;padding:.75rem 1rem;background:linear-gradient(90deg,#7be495,#3cc16e);color:#08351a;font-weight:700;display:flex;align-items:center;gap:.5rem}
+    .success-message .content{padding:1rem;color:#333;font-size:0.95rem}
+    .success-message .close{display:inline-block;margin-top:.75rem;background:#27ae60;color:#fff;padding:.5rem .75rem;border-radius:8px;text-decoration:none;cursor:pointer;border:none}
+    .works-list{margin-bottom:1.25rem}
+    .works-list li{margin:0.25rem 0}
+</style>
 <body>
 
 <!-- Analytics -->
@@ -92,8 +102,21 @@
             </div>
         </div>
         <div class="row justify-content-center">
+            <div class="col-lg-8 mx-auto">
+                <div class="mbr-section-head mb-3">
+                    <h4 class="mbr-section-subtitle mbr-fonts-style align-center display-7">Próximas obras y precios</h4>
+                </div>
+                <ul class="works-list">
+                    <li><strong>La Trilogía de Invierno</strong> — Entrada general: $1500</li>
+                    <li><strong>Noche de Canciones</strong> — Entrada general: $1200</li>
+                    <li><strong>Comedia en Tres Actos</strong> — Entrada general: $1000</li>
+                    <li><strong>Funciones Especiales</strong> — Entrada VIP: $2500</li>
+                </ul>
+            </div>
             <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
-                <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="b1y8ZdId04OYmSyTvHO4VZW43di63vURgJggWVDcIPqCacywEKl/1VUW3GcG4/Eq1emMlCo5Jp1GEu+iueXvdoxCW19dEz1vlMB0h7JS0ikZnuCHRuEV8f0/IceNQLo5">
+                
+                <input type="checkbox" id="compra-toggle" class="modal-toggle" hidden>
+                <form class="mbr-form form-with-styler" data-form-title="Entradas" novalidate>
                     <div class="row">
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Compra Exitosa!</div>
                         <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
@@ -101,19 +124,38 @@
                         </div>
                     </div>
                     <div class="dragArea row">
-                        <div class="col-md col-sm-12 form-group mb-3" data-for="name">
-                            <input type="text" name="name" placeholder="Obras" data-form-field="name" class="form-control" value="" id="name-form02-m">
+                        <div class="col-12 form-group mb-3">
+                            <label class="d-block mb-2">Elige la función</label>
+                            <div class="list-group">
+                                    <label class="list-group-item d-flex align-items-center">
+                                        <div><input type="radio" name="obra_select" value="La Trilogía de Invierno - $1500"> <strong>La Trilogía de Invierno</strong> — $1500</div>
+                                    </label>
+                                    <label class="list-group-item d-flex align-items-center">
+                                        <div><input type="radio" name="obra_select" value="Noche de Canciones - $1200"> <strong>Noche de Canciones</strong> — $1200</div>
+                                    </label>
+                                    <label class="list-group-item d-flex align-items-center">
+                                        <div><input type="radio" name="obra_select" value="Comedia en Tres Actos - $1000"> <strong>Comedia en Tres Actos</strong> — $1000</div>
+                                    </label>
+                                    <label class="list-group-item d-flex align-items-center">
+                                        <div><input type="radio" name="obra_select" value="Funciones Especiales - $2500"> <strong>Funciones Especiales</strong> — VIP $2500</div>
+                                    </label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-6 col-sm-12 form-group mb-3" data-for="cantidad">
+                            <label class="visually-hidden" for="cantidad-form02-m">Cantidad</label>
+                            <input type="number" min="1" name="cantidad" placeholder="Cantidad" class="form-control" value="1" id="cantidad-form02-m">
                         </div>
                         
-                        <div class="col-12 form-group mb-3" data-for="phone">
-                            <input type="tel" name="phone" placeholder="Precio" data-form-field="phone" class="form-control" value="" id="phone-form02-m">
-                        </div>
-                        <div class="col-12 form-group mb-3" data-for="textarea">
-                            <textarea name="textarea" placeholder="Asiento" data-form-field="textarea" class="form-control" id="textarea-form02-m"></textarea>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn"><button type="submit" class="btn btn-primary display-7">Comprar</button></div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn"><label for="compra-toggle" class="btn btn-primary display-7">Comprar</label></div>
                     </div>
                 </form>
+                                <div id="compra-success" class="success-message">
+                                    <h4>Compra Exitosa</h4>
+                                    <p>Gracias por tu compra.</p>
+                                    <p><label for="compra-toggle" class="close">Cerrar</label></p>
+                                </div>
             </div>
         </div>
     </div>

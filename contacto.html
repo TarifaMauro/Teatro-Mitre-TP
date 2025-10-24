@@ -24,6 +24,14 @@
   
   
   
+    <style>
+        .success-message{display:none;position:fixed;left:50%;top:20%;transform:translateX(-50%);background:#fff;border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,.25);z-index:9999;max-width:92%;width:420px;overflow:hidden}
+    .success-message:target{display:block}
+    input.modal-toggle:checked ~ .success-message{display:block}
+    .success-message h4{margin:0;padding:.75rem 1rem;background:linear-gradient(90deg,#7be495,#3cc16e);color:#08351a;font-weight:700;display:flex;align-items:center;gap:.5rem}
+    .success-message .content{padding:1rem;color:#333;font-size:0.95rem}
+    .success-message .close{display:inline-block;margin-top:.75rem;background:#27ae60;color:#fff;padding:.5rem .75rem;border-radius:8px;text-decoration:none;cursor:pointer;border:none}
+    </style>
 </head>
 <body>
 
@@ -88,7 +96,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
-                <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="WxCRf5xuv45RtezOfocY8zAnGhiyFSD39xyScR+wQcrxsn4fDDS9M+KVtv62MLngPXsE556m3rstj+PhLDU/CRok1xjJN+N0mG0JjleoX9TXRpz6411rvUB2LBkT1cot">
+                
+                <input type="checkbox" id="contacto-toggle" class="modal-toggle" hidden>
+                <form class="mbr-form form-with-styler" data-form-title="Contacto" novalidate>
                     <div class="row">
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
                         <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
@@ -105,14 +115,27 @@
                             
                         </div>
                         <div class="col-md col-12 form-group mb-3" data-for="name">
-                            <input type="text" name="name" placeholder="Name" data-form-field="Name" class="form-control" id="name-form1-i">
+                            <label class="visually-hidden" for="name-form1-i">Nombre</label>
+                            <input type="text" name="name" placeholder="Nombre" class="form-control" id="name-form1-i">
                         </div>
                         <div class="col-md col-12 form-group mb-3" data-for="email">
-                            <input type="email" name="email" placeholder="Email" data-form-field="Email" class="form-control" id="email-form1-i">
+                            <label class="visually-hidden" for="email-form1-i">Correo</label>
+                            <input type="email" name="email" placeholder="Correo electrónico" class="form-control" id="email-form1-i">
                         </div>
-                        <div class="mbr-section-btn col-12 col-md-auto"><button type="submit" class="btn btn-primary display-4">Enviar</button></div>
+                        <div class="col-12 form-group mb-3" data-for="message">
+                            <label class="visually-hidden" for="msg-form1-i">Mensaje</label>
+                            <textarea name="message" placeholder="Tu mensaje" class="form-control" id="msg-form1-i" rows="4"></textarea>
+                        </div>
+                                                                        <div class="mbr-section-btn col-12 col-md-auto"><label for="contacto-toggle" class="btn btn-primary display-4">Enviar</label></div>
                     </div>
                 </form>
+                                                        <div id="contacto-success" class="success-message">
+                                                            <h4>¡Envío Exitoso! &#10003;</h4>
+                                                            <div class="content">
+                                                                <p>Gracias por tu mensaje.</p>
+                                                                <p><label for="contacto-toggle" class="close">Cerrar</label></p>
+                                                            </div>
+                                                        </div>
             </div>
         </div>
     </div>

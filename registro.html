@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
-  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=EXgMZn"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=EXgMZn" type="text/css">
+</link><link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=EXgMZn"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=EXgMZn" type="text/css">
+    <style>
+        .success-message{display:none;position:fixed;left:50%;top:20%;transform:translateX(-50%);background:#fff;border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,.25);z-index:9999;max-width:92%;width:420px;overflow:hidden}
+    .success-message:target{display:block}
+    input.modal-toggle:checked ~ .success-message{display:block}
+    .success-message h4{margin:0;padding:.75rem 1rem;background:linear-gradient(90deg,#7be495,#3cc16e);color:#08351a;font-weight:700;display:flex;align-items:center;gap:.5rem}
+    .success-message .content{padding:1rem;color:#333;font-size:0.95rem}
+    .success-message .close{display:inline-block;margin-top:.75rem;background:#27ae60;color:#fff;padding:.5rem .75rem;border-radius:8px;text-decoration:none;cursor:pointer;border:none}
+    </style>
 
-  
-  
   
 </head>
 <body>
@@ -92,7 +98,9 @@
                     
                 </div>
                 <div class="col-lg-12 mx-auto mbr-form" data-form-type="formoid">
-                    <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="aHNnV6MQgK+B+C/+UVMIY6hLWUqqcUTa59KmL1hSOToCqBhpoCziXD+TSbT0F0Rx+ot+eW13CwXh9UEj/ZeKXeI55e822s0diyCGpGYKGfocgMQ6QCo77nX8HnwBdRYQ">
+                    
+                    <input type="checkbox" id="registro-toggle" class="modal-toggle" hidden>
+                    <form class="mbr-form form-with-styler" data-form-title="Registro" novalidate>
                         <div class="row">
                             <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Estas Registrado</div>
                             <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
@@ -101,20 +109,31 @@
                         </div>
                         <div class="dragArea row">
                             <div class="col-md col-sm-12 form-group mb-3 mb-3" data-for="name">
-                                <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control" value="" id="name-form03-l">
+                                <label class="visually-hidden" for="name-form03-l">Nombre</label>
+                                <input type="text" name="name" placeholder="Nombre completo" class="form-control" value="" id="name-form03-l">
                             </div>
                             <div class="col-md col-sm-12 form-group mb-3 mb-3" data-for="email">
-                                <input type="email" name="email" placeholder="E-mail" data-form-field="email" class="form-control" value="" id="email-form03-l">
+                                <label class="visually-hidden" for="email-form03-l">Correo</label>
+                                <input type="email" name="email" placeholder="Correo electrónico" class="form-control" value="" id="email-form03-l">
                             </div>
                             <div class="col-12 form-group mb-3 mb-3" data-for="phone">
-                                <input type="tel" name="phone" placeholder="Phone" data-form-field="phone" class="form-control" value="" id="phone-form03-l">
+                                <label class="visually-hidden" for="phone-form03-l">Teléfono</label>
+                                <input type="tel" name="phone" placeholder="Teléfono" class="form-control" value="" id="phone-form03-l">
                             </div>
-                            <div class="col-12 form-group mb-3 mb-3" data-for="textarea">
-                                <textarea name="textarea" placeholder="Password" data-form-field="textarea" class="form-control" id="textarea-form03-l"></textarea>
+                            <div class="col-12 form-group mb-3 mb-3" data-for="password">
+                                <label class="visually-hidden" for="password-form03-l">Contraseña</label>
+                                <input type="password" name="password" placeholder="Contraseña" class="form-control" id="password-form03-l">
                             </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn"><button type="submit" class="btn btn-primary display-7">Registrarse</button></div>
+                                                                                    <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn"><label for="registro-toggle" class="btn btn-primary display-7">Registrarse</label></div>
                         </div>
                     </form>
+                                                                    <div id="registro-success" class="success-message">
+                                                                        <h4>Registro Exitoso &#10003;</h4>
+                                                                        <div class="content">
+                                                                            <p>Gracias por registrarte.</p>
+                                                                            <p><label for="registro-toggle" class="close">Cerrar</label></p>
+                                                                        </div>
+                                                                    </div>
                 </div>
 
 
